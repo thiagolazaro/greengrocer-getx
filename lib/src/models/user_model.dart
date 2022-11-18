@@ -1,6 +1,12 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'user_model.g.dart';
+
+@JsonSerializable()
 class UserModel {
   String? id;
   String? token;
+  @JsonKey(name: 'fullname')
   String? name;
   String? email;
   String? phone;
@@ -17,34 +23,13 @@ class UserModel {
     this.password,
   });
 
-  // Criando um Factory - Construtor nomeado
-  factory UserModel.fromMap(Map<String, dynamic> map) {
-    return UserModel(
-      id: map['id'],
-      name: map['fullname'],
-      cpf: map['cpf'],
-      email: map['email'],
-      password: map['password'],
-      phone: map['phone'],
-      token: map['token'],
-    );
-  }
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
 
-  // Criando toMap
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'fullname': name,
-      'cpf': cpf,
-      'email': email,
-      'password': password,
-      'phone': phone,
-      'token': token,
-    };
-  }
+  Map<String, dynamic> toJson() => _$UserModelToJson(this);
 
   @override
   String toString() {
-    return 'name: $name | cpf: $cpf';
+    return 'UserModel(id: $id, token: $token, name: $name, email: $email, phone: $phone, cpf: $cpf, password: $password)';
   }
 }
