@@ -1,5 +1,3 @@
-import 'dart:js_util';
-
 import 'package:dio/dio.dart';
 
 abstract class HttpMethods {
