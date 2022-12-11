@@ -4,6 +4,8 @@ import 'package:greengrocer/src/pages/auth/controller/auth_controller.dart';
 import 'package:greengrocer/src/pages_routes/app_pages.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   // Injetando o controller na memória para ser acesso
   // em qualquer local pelo aplicativo
 
